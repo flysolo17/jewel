@@ -4,18 +4,18 @@ import java.util.List;
 
 public class Destinations {
     String destinationID;
-    String collectorsName;
+    String collectorID;
     List<String> listAddresses;
-    String nowCollecting;
+    int nowCollecting;
     long timestamp;
 
     public Destinations() {
 
     }
 
-    public Destinations(String destinationID, String collectorsName, List<String> listAddresses, String nowCollecting, long timestamp) {
+    public Destinations(String destinationID, String collectorID, List<String> listAddresses, int nowCollecting, long timestamp) {
         this.destinationID = destinationID;
-        this.collectorsName = collectorsName;
+        this.collectorID = collectorID;
         this.listAddresses = listAddresses;
         this.nowCollecting = nowCollecting;
         this.timestamp = timestamp;
@@ -29,12 +29,12 @@ public class Destinations {
         this.destinationID = destinationID;
     }
 
-    public String getCollectorsName() {
-        return collectorsName;
+    public String getCollectorID() {
+        return collectorID;
     }
 
-    public void setCollectorsName(String collectorsName) {
-        this.collectorsName = collectorsName;
+    public void setCollectorID(String collectorID) {
+        this.collectorID = collectorID;
     }
 
     public List<String> getListAddresses() {
@@ -45,11 +45,11 @@ public class Destinations {
         this.listAddresses = listAddresses;
     }
 
-    public String getNowCollecting() {
+    public int getNowCollecting() {
         return nowCollecting;
     }
 
-    public void setNowCollecting(String nowCollecting) {
+    public void setNowCollecting(int nowCollecting) {
         this.nowCollecting = nowCollecting;
     }
 

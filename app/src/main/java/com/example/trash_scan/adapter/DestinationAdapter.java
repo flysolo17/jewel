@@ -10,9 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trash_scan.R;
+import com.example.trash_scan.firebase.models.Collector;
 import com.example.trash_scan.firebase.models.Destinations;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,DestinationAdapter.DestinationAdapterViewHolder> {
     /**
@@ -29,8 +33,8 @@ public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,De
     @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull DestinationAdapterViewHolder holder, int position, @NonNull Destinations model) {
-        String address = model.getNowCollecting();
-        holder.textNote.setText(model.getCollectorsName() + " is now collecting in " + address + " please prepare your bins.");
+        holder.textNote.setText(model.getListAddresses().get(model.getNowCollecting()));
+        holder.getCollectorInfo(model.getCollectorID());
     }
     @NonNull
     @Override
@@ -41,9 +45,31 @@ public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,De
 
     public static class DestinationAdapterViewHolder extends RecyclerView.ViewHolder {
         TextView textNote;
+        TextView collectorName;
         public DestinationAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textNote = itemView.findViewById(R.id.textNote);
+            collectorName = itemView.findViewById(R.id.textCollectorName);
         }
+
+        public void getCollectorInfo(String collectorID) {
+
+            FirebaseFirestore.getInstance()
+                    .collection("Collector")
+                    .document(collectorID)
+                    .get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            Collector collector = documentSnapshot.toObject(Collector.class);
+                            collectorName.setText(collector.getFirstName() + " " + collector.getLastName());
+
+                        }
+                    });
+
+
+        }
+
     }
+
+
 }
