@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:padding="10dp"
+    android:orientation="horizontal">
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/junkShopProfile"
+        android:layout_width="80dp"
+        android:scaleType="centerCrop"
+        android:gravity="center"
+        android:layout_height="80dp"
+        android:src="@drawable/person"
+        app:civ_border_color="#FF000000"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/junkShopOwnerName"
+            android:text="@string/junk_shop_owner"
+            android:textSize="14sp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/textLastMessage"
+                android:text="Last Message"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textTime"
+                android:text="time"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
