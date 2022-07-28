@@ -1,0 +1,51 @@
+
+ <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewDestinations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCreateDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_navigation_24"
+        android:focusable="true"
+        android:contentDescription="@string/create_navigation" />
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var destinationAdapter: DestinationAdapter
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        firestore = FirebaseFirestore.getInstance()
+        binding.fabCreateDestination.setOnClickListener {
+            val addDestination = AddDestination()
+            addDestination.show(supportFragmentManager, "Add destination")
+        }
+
+        destinationAdapter = DestinationAdapter(this, getAllDestination())
+        binding.recyclerviewDestinations.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerviewDestinations.adapter = destinationAdapter
+    }
+
+    private fun getAllDestination(): FirestoreRecyclerOptions<Destination?> {
+        val query: Query = firestore
+            .collection("Destinations")
+            .orderBy("timestamp",Query.Direction.ASCENDING)
+            .limit(1)
+        return FirestoreRecyclerOptions.Builder<Destination>()
+            .setQuery(query, Destination::class.java)
+            .build()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        destinationAdapter.startListening()
+    }
+}

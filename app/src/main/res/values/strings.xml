@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CollectorApp</string>
+    <string name="create_navigation">Create navigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="collector_name">Collector Name</string>
+    <string name="add_destination">Add Destination</string>
+    <string name="collectors_name">Collectors name</string>
+    <string name="date">date</string>
+    <string name="address">Address</string>
+    <string name="previous">previous</string>
+    <string name="next">Next</string>
+    <string name="save">Save</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone number</string>
+    <string name="loading">Loading</string>
+</resources>
