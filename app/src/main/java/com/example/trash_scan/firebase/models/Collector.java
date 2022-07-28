@@ -4,19 +4,15 @@ public class Collector {
     String id;
     String firstName;
     String lastName;
-    String phone;
-    String plateNumber;
     String email;
 
     public Collector() {
     }
 
-    public Collector(String id, String firstName, String lastName, String phone, String plateNumber, String email) {
+    public Collector(String id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phone = phone;
-        this.plateNumber = plateNumber;
         this.email = email;
     }
 
@@ -42,22 +38,6 @@ public class Collector {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPlateNumber() {
-        return plateNumber;
-    }
-
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
     }
 
     public String getEmail() {

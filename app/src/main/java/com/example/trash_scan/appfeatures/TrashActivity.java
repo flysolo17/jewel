@@ -240,8 +240,7 @@ public class TrashActivity extends Fragment implements JunkshopOwnerAdapter.OnJu
             if (maxConfidence * 100 > 60f){
                 String result = labels.get(maxPos);
                 printResult(result);
-                Points points = new Points(result,maxConfidence);
-                getEarnedPointsToday(points);
+
             }else {
                 binding.textWasteName.setText("I didn't catch that");
             }
@@ -252,12 +251,14 @@ public class TrashActivity extends Fragment implements JunkshopOwnerAdapter.OnJu
     }
     private void printResult(String result) {
         String[] newResult = result.split(",");
-        if (newResult.length == 4) {
+        if (newResult.length == 5) {
             binding.textWasteName.setText(newResult[0]);
             binding.textWasteType.setText(newResult[1]);
             binding.textRecycable.setText(newResult[2]);
             binding.textMarket.setText(newResult[3]);
+            String point = newResult[4];
             scannedResult = newResult[0];
+
             String markertable = newResult[3].toLowerCase();
             getJunkshopRecyclables(newResult[0]);
             if (newResult[2].equalsIgnoreCase("recyclable")){
@@ -265,6 +266,8 @@ public class TrashActivity extends Fragment implements JunkshopOwnerAdapter.OnJu
             } else {
                 binding.textMoreInfo.setVisibility(View.GONE);
             }
+            Points points = new Points(result,Float.parseFloat(point));
+            getEarnedPointsToday(points);
             bindMoreInfoAndMarketPlace(markertable.equalsIgnoreCase("sellable"));
         }
 

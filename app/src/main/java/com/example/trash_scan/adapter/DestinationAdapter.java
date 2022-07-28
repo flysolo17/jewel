@@ -65,8 +65,6 @@ public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,De
 
                         }
                     });
-
-
         }
 
     }

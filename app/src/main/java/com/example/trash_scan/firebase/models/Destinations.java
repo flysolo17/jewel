@@ -37,6 +37,8 @@ public class Destinations {
         this.collectorID = collectorID;
     }
 
+
+
     public List<String> getListAddresses() {
         return listAddresses;
     }

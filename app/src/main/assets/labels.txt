@@ -1,19 +1,19 @@
-Plastic Container,Non Bio Degradable,Recyclable,Sellable
-Plastic Cup,Non Bio Degradable,Non Recyclable,Not sellable
-Plastic Straw,Non Bio Degradable,Non Recyclable,Not sellable
-Facemask,Non Bio Degradable,Non Recyclable,Not sellable
-Battery,Non Bio Degradable,Non Recyclable,Not sellable
-Plastic Cap,Non Bio Degradable,Non Recyclable,Sellable
-Soda Cap,Non Bio Degradable,Recyclable,Sellable
-Aluminium Foil,Non Bio Degradable,Recyclable,Not sellable
-Junk food wrappers,Non Bio Degradable,Recyclable,Not sellable
-Plastic Spoon,Non Bio Degradable,Recyclable,Not sellable
-Plastic Fork,Non Bio Degradable,Recyclable,Not sellable
-Can,Non Bio Degradable,Recyclable,Sellable
-Glass Bottle,Non Bio Degradable,Recyclable,Sellable
-Bond Paper,Bio Degradable,Non Recyclable,Not sellable
-Paper Bag,Bio Degradable,Non Recyclable,Not sellable
-Cardboard,Bio Degradable,Recyclable,Sellable
-Food waste,Bio Degradable,Non Recyclable,Not sellable
-Tissue,Bio Degradable,Non Recyclable,Not sellable
-Plastic Bottle,Non Bio Degradable,Recyclable,Sellable
+Plastic Container,Non Bio Degradable,Recyclable,Sellable,0.20
+Plastic Cup,Non Bio Degradable,Non Recyclable,Not sellable,0.10
+Plastic Straw,Non Bio Degradable,Non Recyclable,Not sellable,0.05
+Facemask,Non Bio Degradable,Non Recyclable,Not sellable,0.05
+Battery,Non Bio Degradable,Non Recyclable,Not sellable,0.05
+Plastic Cap,Non Bio Degradable,Non Recyclable,Sellable,0.10
+Soda Cap,Non Bio Degradable,Recyclable,Sellable,0.05
+Aluminium Foil,Non Bio Degradable,Recyclable,Not sellable,0.05
+Junk food wrappers,Non Bio Degradable,Recyclable,Not sellable,0.05
+Plastic Spoon,Non Bio Degradable,Recyclable,Not sellable,0.05
+Plastic Fork,Non Bio Degradable,Recyclable,Not sellable,0.05
+Can,Non Bio Degradable,Recyclable,Sellable,0.20
+Glass Bottle,Non Bio Degradable,Non Recyclable,Sellable,0.20
+Bond Paper,Bio Degradable,Non Recyclable,Not sellable,0.05
+Paper Bag,Bio Degradable,Non Recyclable,Not sellable,0.05
+Cardboard,Bio Degradable,Recyclable,Sellable,0.10
+Food waste,Bio Degradable,Non Recyclable,Not sellable,0.05
+Tissue,Bio Degradable,Non Recyclable,Not sellable,0.05
+Plastic Bottle,Non Bio Degradable,Recyclable,Sellable,0.30
