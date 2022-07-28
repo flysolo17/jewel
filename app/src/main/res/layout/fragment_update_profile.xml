@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".nav.UpdateProfile">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Account"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8BC34A"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Firstname"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/inputFirstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="Lastname"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/inputLastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:text="@string/phone_number"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/inputPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:text="Plate Number"
+            android:textColor="@color/black" />
+
+        <EditText
+            android:id="@+id/inputPlateNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+
+
+
+
+
+
+
+        <Button
+            android:id="@+id/buttonUpdateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:text="Update Account" />
+
+    </LinearLayout>
+
+</LinearLayout>
