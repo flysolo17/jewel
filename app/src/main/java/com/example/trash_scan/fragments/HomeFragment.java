@@ -105,6 +105,7 @@ public class HomeFragment extends Fragment {
                 .document(id)
                 .collection(Points.TABLE_NAME)
                 .addSnapshotListener((value, error) -> {
+                    pointsList.clear();
                     if (error != null) {
                         error.printStackTrace();
                     } else  {
@@ -124,7 +125,11 @@ public class HomeFragment extends Fragment {
         for (Points points : pointsList){
             pointsTotal += points.getPoints();
         }
+        int rounded = Math.round(pointsTotal);
+        binding.pointsProgress.setProgress(rounded);
+        binding.pointsProgress.setMax(getProgressBarMax(pointsTotal));
         binding.textPoints.setText(decfor.format(pointsTotal));
+        displayMinAndMax(rounded,getProgressBarMax(pointsTotal));
         displayBadge(pointsTotal);
     }
     private void displayBadge(float points) {
@@ -154,5 +159,22 @@ public class HomeFragment extends Fragment {
                 .setQuery(query,Destinations.class)
                 .build();
         return build;
+    }
+    private int getProgressBarMax(float points) {
+        int max;
+        if (points < 50) {
+            max = 50;
+        } else if (points >= 50 && points < 100) {
+            max = 100;
+        } else if (points >= 100 && points <=250) {
+            max = 250;
+        } else {
+            max =250;
+        }
+        return max;
+    }
+    private void displayMinAndMax(int min ,int max) {
+        binding.textMin.setText(String.valueOf(min));
+        binding.textMax.setText(String.valueOf(max));
     }
 }
