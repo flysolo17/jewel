@@ -41,7 +41,11 @@ public class RecycableAdapter extends RecyclerView.Adapter<RecycableAdapter.Recy
     public void onBindViewHolder(@NonNull RecycableViewHolder holder, int position) {
         Recycables recycables = recycablesList.get(position);
         holder.textRecycableItemName.setText(recycables.getRecycableItemName());
-        holder.textItemPrice.setText(String.valueOf(recycables.getRecycablePrice()));
+        if (recycables.getRecycablePrice() == 0) {
+            holder.textItemPrice.setText("No price available");
+        } else {
+            holder.textItemPrice.setText(String.valueOf(recycables.getRecycablePrice()));
+        }
         holder.textRecycableInformation.setText(recycables.getRecycableInformation());
         if (!recycables.getRecycalbleImage().isEmpty()) {
             Picasso.get().load(recycables.getRecycalbleImage()).into(holder.recycableImage);

@@ -46,7 +46,12 @@ public class JunkShopsWasteAdapter extends RecyclerView.Adapter<JunkShopsWasteAd
             Picasso.get().load(recycables.getRecycalbleImage()).into(holder.imageWaste);
         }
         holder.textWasteName.setText(recycables.getRecycableItemName());
-        holder.textWastePrice.setText(String.valueOf(recycables.getRecycablePrice()));
+        if (recycables.getRecycablePrice() == 0) {
+            holder.textWastePrice.setText("No price Available");
+        } else {
+            holder.textWastePrice.setText(String.valueOf(recycables.getRecycablePrice()));
+        }
+
         holder.getjunkshopID(recycables.getJunkshopID());
         holder.itemView.setOnClickListener(v -> {
             onWasteClick.onViewWasteInfo(position);
