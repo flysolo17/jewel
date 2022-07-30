@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
             navController?.navigate(R.id.addDestination)
         }
 
+        address = resources.getStringArray(R.array.barangay).toMutableList()
     }
     private fun setupNav() {
         navController = findNavController(R.id.fragmentContainer)
@@ -59,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomAppBar.performHide(true)
         binding.bottomAppBar.hideOnScroll = false
         binding.fabCreateDestination.hide()
+    }
+    companion object {
+        var address : MutableList<String> ? = null
     }
 
 }

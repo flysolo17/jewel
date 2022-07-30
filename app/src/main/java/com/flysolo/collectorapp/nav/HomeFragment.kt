@@ -12,8 +12,10 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.flysolo.collectorapp.R
 import com.flysolo.collectorapp.adapters.DestinationAdapter
 import com.flysolo.collectorapp.databinding.FragmentHomeBinding
+
 import com.flysolo.collectorapp.models.Destination
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
@@ -34,15 +36,15 @@ class HomeFragment : Fragment(),DestinationAdapter.DestinationClicks {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         firestore = FirebaseFirestore.getInstance()
-        destinationAdapter = DestinationAdapter(view.context, getAllDestination(),this)
-        binding.recyclerviewDestinations.layoutManager = LinearLayoutManager(view.context,LinearLayoutManager.HORIZONTAL,false)
+        destinationAdapter = DestinationAdapter(view.context, getAllDestination(FirebaseAuth.getInstance().currentUser!!.uid),this)
+        binding.recyclerviewDestinations.layoutManager = LinearLayoutManager(view.context,LinearLayoutManager.VERTICAL,false)
         binding.recyclerviewDestinations.adapter = destinationAdapter
     }
-    private fun getAllDestination(): FirestoreRecyclerOptions<Destination?> {
+    private fun getAllDestination(id : String): FirestoreRecyclerOptions<Destination?> {
         val query: Query = firestore
             .collection("Destinations")
+            .whereEqualTo(Destination.COLLECTOR_ID,id)
             .orderBy("timestamp",Query.Direction.ASCENDING)
-            .limit(1)
         return FirestoreRecyclerOptions.Builder<Destination>()
             .setQuery(query, Destination::class.java)
             .build()

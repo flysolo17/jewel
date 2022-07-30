@@ -2,6 +2,7 @@ package com.flysolo.collectorapp.models
 
 class User(
     var userID: String? = "",
+    var userProfile: String? = "",
     var userFirstName: String? = "",
     var userLastName: String? = "",
     var userAddress: String?= "",

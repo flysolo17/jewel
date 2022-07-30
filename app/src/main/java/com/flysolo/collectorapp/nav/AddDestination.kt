@@ -14,8 +14,10 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import android.util.SparseBooleanArray
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.flysolo.collectorapp.MainActivity
 import com.flysolo.collectorapp.models.Destination
 import com.flysolo.collectorapp.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -24,8 +26,8 @@ import com.google.firebase.auth.FirebaseAuth
 class AddDestination : Fragment() {
     private lateinit var binding: FragmentAddDestinationBinding
     var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var listAddresses : MutableList<String>? =null
     private lateinit var arrayAdapter: ArrayAdapter<*>
+    val listAddresses = MainActivity.address!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,35 +40,15 @@ class AddDestination : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listAddresses = mutableListOf()
-        db.collection(User.TABLE_NAME)
-            .get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    for (document in task.result) {
-                        val users = document.toObject(User::class.java)
-                        if (users.userAddress!!.isNotEmpty()){
-                            if (!listAddresses!!.contains(users.userAddress)){
-                                listAddresses?.add(users.userAddress!!)
-                                arrayAdapter.notifyDataSetChanged()
-                            }
-                        }
 
-                    }
-                } else {
-                    Toast.makeText(requireContext(),"No Addresses",Toast.LENGTH_SHORT).show()
-                }
-            }
 
-        arrayAdapter = ArrayAdapter(requireContext(),
-            R.layout.simple_list_item_multiple_choice, listAddresses!!)
+        arrayAdapter = ArrayAdapter(view.context,R.layout.simple_list_item_multiple_choice,
+            listAddresses)
         binding.listHomeAddress.adapter = arrayAdapter
 
         binding.listHomeAddress.choiceMode = ListView.CHOICE_MODE_MULTIPLE
-        //list.setItemChecked(0, true);
         binding.listHomeAddress.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(requireContext(), listAddresses!![position],Toast.LENGTH_SHORT).show()
-            binding.locations.text = listAddresses!![position]
+            binding.locations.text = listAddresses[position]
         }
         binding.buttonCancel.setOnClickListener{
               Navigation.findNavController(view).popBackStack()
@@ -95,8 +77,7 @@ class AddDestination : Fragment() {
         val len: Int = binding.listHomeAddress.count
         val checked: SparseBooleanArray = binding.listHomeAddress.checkedItemPositions
         for (i in 0 until len) if (checked[i]) {
-            Log.i("xxxx", listAddresses!![i])
-            listAddress.add(listAddresses!![i])
+            listAddress.add(listAddresses[i])
         }
         return listAddress
     }

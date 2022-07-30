@@ -11,10 +11,12 @@
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/fragment_update_profile.xml" value="0.4" />
+        <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/fragment_view_home_owners.xml" value="0.18802083333333333" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/progress_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/row_addresses.xml" value="0.4" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/row_destination.xml" value="0.16" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/row_destinations.xml" value="0.3520408163265306" />
+        <entry key="..\:/My Projects/CollectorApp/app/src/main/res/layout/row_home_owners.xml" value="0.365625" />
         <entry key="..\:/My Projects/CollectorApp/app/src/main/res/menu/collector_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

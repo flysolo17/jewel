@@ -15,13 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.flysolo.collectorapp.R
 import com.flysolo.collectorapp.viewmodel.AdressViewModel
 
-class AddressAdapter(private val context: Context, var listAddress : List<String>) :
-    RecyclerView.Adapter<AddressAdapter.AddressAdapterViewHolder>() {
-    inner class AddressAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textAddress: TextView
-        init {
-            textAddress  = itemView.findViewById(R.id.textAddress)
-        }
+class AddressAdapter(private val context: Context, var listAddress : List<String>,val onAddressClick: OnAddressClick) : RecyclerView.Adapter<AddressAdapter.AddressAdapterViewHolder>() {
+    interface OnAddressClick {
+        fun addressIsClicked(position: Int)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressAdapterViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.row_addresses, parent, false)
@@ -40,11 +36,20 @@ class AddressAdapter(private val context: Context, var listAddress : List<String
             }
         }
         holder.textAddress.text = listAddress[position]
-
+        holder.itemView.setOnClickListener {
+            addressViewModel.setAddress(listAddress[position])
+            onAddressClick.addressIsClicked(position)
+        }
     }
 
     override fun getItemCount(): Int {
         return listAddress.size
+    }
+    inner class AddressAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textAddress: TextView
+        init {
+            textAddress  = itemView.findViewById(R.id.textAddress)
+        }
     }
 
 
