@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "1070798817851",
+    "firebase_url": "https://trash-scan-53c2b-default-rtdb.firebaseio.com",
+    "project_id": "trash-scan-53c2b",
+    "storage_bucket": "trash-scan-53c2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070798817851:android:2e9834768ff00cd782aa1e",
+        "android_client_info": {
+          "package_name": "com.example.pushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5-L3pjx7-Fo_0p1zXdJpnPPvED2UxTOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070798817851:android:68057c7a943f3a4a82aa1e",
+        "android_client_info": {
+          "package_name": "com.example.trash_scan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5-L3pjx7-Fo_0p1zXdJpnPPvED2UxTOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070798817851:android:203e5fc0c71f9e8c82aa1e",
+        "android_client_info": {
+          "package_name": "com.ketchupzzz.gso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5-L3pjx7-Fo_0p1zXdJpnPPvED2UxTOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070798817851-0hvi3pdjp0tosec36quuc35hu3aggcr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
