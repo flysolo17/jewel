@@ -6,6 +6,7 @@
         <entry key="..\:/projects for my resume/gso/app/src/main/res/drawable-v24/ic_rectangle_200.xml" value="0.213" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/drawable-v24/ic_shape.xml" value="0.2795" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/drawable/cards_background.xml" value="0.2795" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout-v29/fragment_add_schedule.xml" value="0.48676470588235293" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/activity_create_account.xml" value="0.36666666666666664" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
@@ -14,6 +15,8 @@
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_schedule.xml" value="0.35260416666666666" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/progress_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/row_days.xml" value="0.6" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/row_routes.xml" value="0.36666666666666664" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/row_scheds.xml" value="0.365625" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/menu/menu_gso.xml" value="0.365625" />
       </map>
     </option>

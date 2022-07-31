@@ -1,5 +1,7 @@
 package com.ketchupzzz.gso.model
 
+import java.util.*
+
 class Days {
     var id : Int ? = null
     var day : String ? = null
@@ -24,6 +26,7 @@ class Days {
     fun getDays() : List<Days> {
         return listDays
     }
+
     companion object {
         const val MONDAY = "Mon"
         const val TUESDAY = "Tue"

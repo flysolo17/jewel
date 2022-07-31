@@ -5,55 +5,56 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.ketchupzzz.gso.R
+import com.ketchupzzz.gso.ScheduleAdapter
+import com.ketchupzzz.gso.databinding.FragmentAddScheduleBinding
+import com.ketchupzzz.gso.databinding.FragmentScheduleBinding
+import com.ketchupzzz.gso.model.Schedule
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ScheduleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ScheduleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentScheduleBinding
+    private val firestore = FirebaseFirestore.getInstance()
+    private lateinit var scheduleAdapter : ScheduleAdapter
+    private lateinit var scheduleList : MutableList<Schedule>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false)
+        binding = FragmentScheduleBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+    private fun init() {
+        binding.recyclerviewScheds.apply {
+            layoutManager = LinearLayoutManager(binding.root.context)
+        }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+        getAllSchedules(FirebaseAuth.getInstance().currentUser!!.uid)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ScheduleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ScheduleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getAllSchedules(myID : String) {
+        scheduleList = mutableListOf()
+        firestore.collection(Schedule.TABLE_NAME)
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    error.printStackTrace()
+                } else {
+                    value?.map { documents ->
+                        val schedule = documents.toObject(Schedule::class.java)
+                        if (schedule.gsoID.equals(myID)) {
+                            scheduleList.add(schedule)
+                        }
+                    }
+                    scheduleAdapter = ScheduleAdapter(binding.root.context,scheduleList)
+                    binding.recyclerviewScheds.adapter = scheduleAdapter
                 }
             }
     }
