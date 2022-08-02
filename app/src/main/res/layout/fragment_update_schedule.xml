@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".nav.UpdateScheduleFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <NumberPicker
+            android:id="@+id/hourPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:selectionDividerHeight="0dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:layout_margin="10dp"/>
+        <NumberPicker
+            android:id="@+id/minutePicker"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:selectionDividerHeight="0dp"
+            android:layout_height="wrap_content"/>
+        <NumberPicker
+
+            android:id="@+id/meridiemPicker"
+            android:layout_margin="10dp"
+            android:selectionDividerHeight="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/cards_background"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Days"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+        <LinearLayout
+            android:id="@+id/layoutDays"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:text="@string/collector_name"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textCollectorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Collector"
+
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/plate_number"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textCollectorPlateNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Routes"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_light"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <ImageButton
+                    android:id="@+id/buttonAddCollectorRoutes"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:backgroundTint="@color/white"
+                    android:background="@drawable/ic_plus"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutRoutes"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+        <Button
+            android:id="@+id/buttonCreateSched"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create"
+            android:layout_weight="1"
+            style="@style/Widget.MaterialComponents.Button.TextButton"/>
+    </LinearLayout>
+
+</LinearLayout>

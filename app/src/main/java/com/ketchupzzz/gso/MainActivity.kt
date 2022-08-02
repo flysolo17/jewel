@@ -49,6 +49,5 @@ class MainActivity : AppCompatActivity() {
         binding.bottomAppBar.performHide(true)
         binding.bottomAppBar.hideOnScroll = false
         binding.fabCreateSchedule.hide()
-
     }
 }

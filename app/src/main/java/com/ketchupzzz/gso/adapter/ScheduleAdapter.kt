@@ -1,6 +1,5 @@
-package com.ketchupzzz.gso
+package com.ketchupzzz.gso.adapter
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -12,14 +11,15 @@ import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.ketchupzzz.gso.databinding.ActivityCreateAccountBinding.inflate
+import com.ketchupzzz.gso.R
 import com.ketchupzzz.gso.model.Collector
-import com.ketchupzzz.gso.model.Days
 import com.ketchupzzz.gso.model.Schedule
 
-class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>) : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>() {
+class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>,val onScheduleClicks: OnScheduleClicks) : RecyclerView.Adapter<ScheduleAdapter.ScheduleViewHolder>() {
 
-
+    interface OnScheduleClicks {
+        fun onScheduleClick(position: Int)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
         val view : View = LayoutInflater.from(context).inflate(R.layout.row_scheds,parent,false)
 
@@ -28,11 +28,15 @@ class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>) : 
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
         val scheds  = scheduleList[position]
-        holder.textTime.text = "${scheds.startTime!!.hour} : ${scheds.startTime.minute} ${scheds.startTime.meridiem}"
+        val minute = String.format("%02d", scheds.startTime!!.minute)
+        holder.textTime.text = "${scheds.startTime!!.hour} : $minute ${scheds.startTime.meridiem}"
         scheds.days?.map { days ->
             addDays(days,holder.layoutDays)
         }
         holder.getCollectorInfo(scheds.collectorID!!)
+        holder.itemView.setOnClickListener{
+            onScheduleClicks.onScheduleClick(position)
+        }
     }
 
     override fun getItemCount(): Int {

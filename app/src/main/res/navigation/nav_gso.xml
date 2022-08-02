@@ -9,7 +9,11 @@
         android:id="@+id/menu_schedule"
         android:name="com.ketchupzzz.gso.nav.ScheduleFragment"
         android:label="fragment_schedule"
-        tools:layout="@layout/fragment_schedule" />
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_menu_schedule_to_updateScheduleFragment"
+            app:destination="@id/updateScheduleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menu_profile"
         android:name="com.ketchupzzz.gso.nav.ProfileFragment"
@@ -20,4 +24,9 @@
         android:name="com.ketchupzzz.gso.nav.AddScheduleFragment"
         android:label="fragment_add_schedule"
         tools:layout="@layout/fragment_add_schedule" />
+    <fragment
+        android:id="@+id/updateScheduleFragment"
+        android:name="com.ketchupzzz.gso.nav.UpdateScheduleFragment"
+        android:label="fragment_update_schedule"
+        tools:layout="@layout/fragment_update_schedule" />
 </navigation>
