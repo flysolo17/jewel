@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ketchupzzz.gso.R
@@ -29,7 +30,7 @@ class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>,val
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
         val scheds  = scheduleList[position]
         val minute = String.format("%02d", scheds.startTime!!.minute)
-        holder.textTime.text = "${scheds.startTime!!.hour} : $minute ${scheds.startTime.meridiem}"
+        holder.textTime.text = "${scheds.startTime.hour} : $minute ${scheds.startTime.meridiem}"
         scheds.days?.map { days ->
             addDays(days,holder.layoutDays)
         }
@@ -37,6 +38,7 @@ class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>,val
         holder.itemView.setOnClickListener{
             onScheduleClicks.onScheduleClick(position)
         }
+        holder.initRoutes(scheds.routes)
     }
 
     override fun getItemCount(): Int {
@@ -47,7 +49,9 @@ class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>,val
         val textTime : TextView = itemView.findViewById(R.id.textTime)
         val textPlateNumber : TextView = itemView.findViewById(R.id.textCollectorPlateNumber)
         val layoutDays : LinearLayout = itemView.findViewById(R.id.layoutDays)
+        val layoutRoutes : RecyclerView = itemView.findViewById(R.id.layoutRoutes)
 
+        private lateinit var routeAdapter: RouteAdapter
         fun getCollectorInfo(collectorID : String) {
             FirebaseFirestore.getInstance().collection(Collector.TABLE_NAME)
                 .document(collectorID)
@@ -61,6 +65,16 @@ class ScheduleAdapter(val context: Context,val scheduleList : List<Schedule>,val
                         }
                     }
                 }
+        }
+        fun initRoutes(listRoutes : List<String>) {
+            routeAdapter = RouteAdapter(itemView.context,listRoutes)
+            layoutRoutes.apply {
+                layoutManager = StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL)
+                adapter = routeAdapter
+            }
+
+
+
         }
     }
     private fun addDays(days: String ,layoutDays : LinearLayout) {

@@ -21,6 +21,7 @@
     <string name="create">Create</string>
     <string name="plate_number">Plate Number</string>
     <string name="collector_name">Collector Name</string>
+    <string name="edit_profile">Edit Profile</string>
 
     <string-array name="routes">
         <item>Anonas</item>

@@ -18,7 +18,14 @@
         android:id="@+id/menu_profile"
         android:name="com.ketchupzzz.gso.nav.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_menu_profile_to_updateProfile"
+            app:destination="@id/updateProfile" />
+        <action
+            android:id="@+id/action_menu_profile_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addScheduleFragment"
         android:name="com.ketchupzzz.gso.nav.AddScheduleFragment"
@@ -29,4 +36,14 @@
         android:name="com.ketchupzzz.gso.nav.UpdateScheduleFragment"
         android:label="fragment_update_schedule"
         tools:layout="@layout/fragment_update_schedule" />
+    <fragment
+        android:id="@+id/updateProfile"
+        android:name="com.ketchupzzz.gso.nav.UpdateProfile"
+        android:label="fragment_update_profile"
+        tools:layout="@layout/fragment_update_profile" />
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.ketchupzzz.gso.nav.UpdatePasswordFragment"
+        android:label="fragment_update_password"
+        tools:layout="@layout/fragment_update_password" />
 </navigation>

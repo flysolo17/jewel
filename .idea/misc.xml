@@ -11,8 +11,11 @@
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_add_schedule.xml" value="0.4" />
-        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_profile.xml" value="0.35260416666666666" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_forgot_password.xml" value="0.36666666666666664" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_schedule.xml" value="0.35260416666666666" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_update_password.xml" value="0.36666666666666664" />
+        <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_update_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/fragment_update_schedule.xml" value="0.36666666666666664" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/progress_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/projects for my resume/gso/app/src/main/res/layout/row_days.xml" value="0.6" />

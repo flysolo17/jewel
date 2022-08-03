@@ -20,6 +20,7 @@ import com.ketchupzzz.gso.MainActivity
 import com.ketchupzzz.gso.ProgressDialog
 import com.ketchupzzz.gso.R
 import com.ketchupzzz.gso.databinding.ActivityLoginBinding
+import com.ketchupzzz.gso.dialog.ForgotPasswordFragment
 import java.util.*
 
 class LoginActivity : AppCompatActivity() {
@@ -35,6 +36,12 @@ class LoginActivity : AppCompatActivity() {
         signUp(binding.textCreateAccount)
 
         progressDialog = ProgressDialog(this)
+        binding.buttonForgotPassword.setOnClickListener {
+            val forgotPassword = ForgotPasswordFragment()
+            if (!forgotPassword.isAdded) {
+                forgotPassword.show(supportFragmentManager,"Forgot Password")
+            }
+        }
         binding.buttonLoginAccount.setOnClickListener {
             val email = binding.inputEmail.text.toString()
             val password = binding.inputPassword.toString()

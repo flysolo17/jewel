@@ -1,14 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".nav.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/purple_500"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_height="200dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PROFILE"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="5dp"/>
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Name: "/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:id="@+id/textFullname"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:text="Fullname"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Email: "/>
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:text="Email"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Phone: "/>
+            <TextView
+                android:id="@+id/textPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:text="Phone"/>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:textAlignment="textStart"
+        android:padding="10dp"
+        android:drawableEnd="@drawable/ic_edit_square"
+        android:drawableTint="@color/purple_500"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+    <Button
+        android:id="@+id/buttonChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:textAlignment="textStart"
+        android:padding="10dp"
+        android:drawableEnd="@drawable/ic_lock"
+        android:drawableTint="@color/purple_500"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textAlignment="textStart"
+        android:padding="10dp"
+        android:drawableEnd="@drawable/ic_logout"
+        android:drawableTint="@color/purple_500"
+        android:textAllCaps="false"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+</LinearLayout>
