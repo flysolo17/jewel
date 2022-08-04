@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_home_to_trashActivity"
             app:destination="@id/trashActivity" />
+        <action
+            android:id="@+id/action_nav_home_to_destinationInfoFragment"
+            app:destination="@id/destinationInfoFragment" />
 
     </fragment>
     <fragment
@@ -145,6 +148,11 @@
             android:id="@+id/action_marketPlaceFragment2_to_viewWaste"
             app:destination="@id/viewWaste" />
     </fragment>
+    <fragment
+        android:id="@+id/destinationInfoFragment"
+        android:name="com.example.trash_scan.DestinationInfoFragment"
+        android:label="Destination Info"
+        tools:layout="@layout/fragment_destination_info" />
 
 
 </navigation>

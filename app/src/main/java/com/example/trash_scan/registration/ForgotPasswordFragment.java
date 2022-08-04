@@ -45,8 +45,10 @@ public class ForgotPasswordFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         validation = new Validation();
         binding.buttonResetPassword.setOnClickListener(v-> {
+
             forgotPassword(binding.inputEmail);
         });
+
     }
 
     private void forgotPassword(TextInputLayout email) {

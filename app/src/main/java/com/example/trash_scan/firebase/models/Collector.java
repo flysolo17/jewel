@@ -4,20 +4,30 @@ public class Collector {
     String id;
     String firstName;
     String lastName;
+    String plateNumber;
     String email;
-
+    public static String TABLE_NAME = "Collector";
     public Collector() {
     }
 
-    public Collector(String id, String firstName, String lastName, String email) {
+    public Collector(String id, String firstName, String lastName,String plateNumber, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.plateNumber = plateNumber;
         this.email = email;
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public void setPlateNumber(String plateNumber) {
+        this.plateNumber = plateNumber;
     }
 
     public void setId(String id) {

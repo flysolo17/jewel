@@ -8,7 +8,7 @@ public class Destinations {
     List<String> listAddresses;
     int nowCollecting;
     long timestamp;
-
+    public static String TABLE_NAME = "Destinations";
     public Destinations() {
 
     }

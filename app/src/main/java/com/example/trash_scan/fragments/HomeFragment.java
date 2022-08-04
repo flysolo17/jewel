@@ -24,6 +24,7 @@ import com.example.trash_scan.databinding.FragmentHomeBinding;
 import com.example.trash_scan.firebase.models.Destinations;
 import com.example.trash_scan.firebase.models.Points;
 import com.example.trash_scan.firebase.models.User;
+import com.example.trash_scan.viewmodels.DestinationViewModel;
 import com.example.trash_scan.viewmodels.UserViewModel;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -42,13 +43,14 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements DestinationAdapter.OnDestinationClick {
     private FragmentHomeBinding binding;
     private FirebaseFirestore firestore;
     private DestinationAdapter destinationAdapter;
     private User user = null;
     private UserViewModel userViewModel;
     private static final DecimalFormat decfor = new DecimalFormat("0.00");
+    private DestinationViewModel destinationViewModel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,9 +62,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        destinationViewModel = new ViewModelProvider(requireActivity()).get(DestinationViewModel.class);
         userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
         firestore = FirebaseFirestore.getInstance();
-        destinationAdapter = new DestinationAdapter(getAllDestinations());
+        destinationAdapter = new DestinationAdapter(getAllDestinations(), this);
         binding.cardViewTrash.setOnClickListener(v -> Navigation.findNavController(view).navigate(R.id.action_nav_home_to_trashActivity));
 
         binding.cardViewNotif.setOnClickListener(v ->  Navigation.findNavController(view).navigate(R.id.action_nav_home_to_tips));
@@ -176,5 +179,11 @@ public class HomeFragment extends Fragment {
     private void displayMinAndMax(int min ,int max) {
         binding.textMin.setText(String.valueOf(min));
         binding.textMax.setText(String.valueOf(max));
+    }
+
+    @Override
+    public void onDestinationClicked(int position) {
+        destinationViewModel.setDestination(destinationAdapter.getItem(position));
+        Navigation.findNavController(binding.getRoot()).navigate(R.id.action_nav_home_to_destinationInfoFragment);
     }
 }

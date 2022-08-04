@@ -230,4 +230,9 @@
     <string name="market_place">Market Place</string>
     <string name="Home_owner">Home owner</string>
     <string name="junkshop_owner">Junkshop owner</string>
+    <string name="collector_name">Collector Name</string>
+    <string name="plate_number">Plate Number</string>
+    <string name="days">Days</string>
+    <string name="routes">Routes</string>
+    <string name="info">Info</string>
 </resources>

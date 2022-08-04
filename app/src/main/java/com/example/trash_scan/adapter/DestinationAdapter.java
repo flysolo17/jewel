@@ -19,22 +19,22 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,DestinationAdapter.DestinationAdapterViewHolder> {
-    /**
-     * Create a new RecyclerView adapter that listens to a Firestore Query.  See {@link
-     * FirestoreRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
-
-    public DestinationAdapter(@NonNull FirestoreRecyclerOptions<Destinations> options) {
+    public interface OnDestinationClick {
+        void onDestinationClicked(int position);
+    }
+    OnDestinationClick onDestinationClick;
+    public DestinationAdapter(@NonNull FirestoreRecyclerOptions<Destinations> options,OnDestinationClick onDestinationClick) {
         super(options);
+        this.onDestinationClick = onDestinationClick;
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onBindViewHolder(@NonNull DestinationAdapterViewHolder holder, int position, @NonNull Destinations model) {
-        holder.textNote.setText(model.getListAddresses().get(model.getNowCollecting()));
-        holder.getCollectorInfo(model.getCollectorID());
+        holder.getCollectorInfo(model.getCollectorID(),model.getListAddresses().get(model.getNowCollecting()));
+        holder.itemView.setOnClickListener(v -> {
+            onDestinationClick.onDestinationClicked(position);
+        });
     }
     @NonNull
     @Override
@@ -45,15 +45,14 @@ public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,De
 
     public static class DestinationAdapterViewHolder extends RecyclerView.ViewHolder {
         TextView textNote;
-        TextView collectorName;
+
         public DestinationAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             textNote = itemView.findViewById(R.id.textNote);
-            collectorName = itemView.findViewById(R.id.textCollectorName);
+
         }
 
-        public void getCollectorInfo(String collectorID) {
-
+        public void getCollectorInfo(String collectorID,String destination) {
             FirebaseFirestore.getInstance()
                     .collection("Collector")
                     .document(collectorID)
@@ -61,8 +60,8 @@ public class DestinationAdapter extends FirestoreRecyclerAdapter<Destinations,De
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             Collector collector = documentSnapshot.toObject(Collector.class);
-                            collectorName.setText(collector.getFirstName() + " " + collector.getLastName());
-
+                            textNote.setText(collector.getFirstName() + " " + collector.getFirstName()
+                            + " is now collectiong in " + destination);
                         }
                     });
         }
