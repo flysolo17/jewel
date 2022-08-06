@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.buttonLoginAccount.setOnClickListener {
             val email = binding.inputEmail.text.toString()
-            val password = binding.inputPassword.toString()
+            val password = binding.inputPassword.text.toString()
             when {
                 email.isEmpty() -> {
                     binding.inputEmail.error = "enter email"
