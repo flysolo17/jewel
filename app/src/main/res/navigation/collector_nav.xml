@@ -16,10 +16,19 @@
         android:id="@+id/nav_profile"
         android:name="com.flysolo.collectorapp.nav.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addDestination"
         android:name="com.flysolo.collectorapp.nav.AddDestination"
         android:label="fragment_add_destination"
         tools:layout="@layout/fragment_add_destination" />
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.flysolo.collectorapp.nav.UpdatePasswordFragment"
+        android:label="fragment_update_password"
+        tools:layout="@layout/fragment_update_password" />
 </navigation>

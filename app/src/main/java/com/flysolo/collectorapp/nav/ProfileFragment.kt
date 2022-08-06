@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.flysolo.collectorapp.R
 import com.flysolo.collectorapp.adapters.ScheduleAdapter
@@ -14,6 +16,7 @@ import com.flysolo.collectorapp.databinding.FragmentProfileBinding
 import com.flysolo.collectorapp.login.LoginActivity
 import com.flysolo.collectorapp.models.Collector
 import com.flysolo.collectorapp.models.Schedule
+import com.flysolo.collectorapp.viewmodel.CollectorViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -24,6 +27,7 @@ class ProfileFragment : Fragment() {
     private var collector : Collector? = null
     private lateinit var scheduleAdapter: ScheduleAdapter
     private lateinit var scheduleList : MutableList<Schedule>
+    private lateinit var collectorViewModel: CollectorViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +39,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        collectorViewModel = ViewModelProvider(requireActivity())[CollectorViewModel::class.java]
         binding.recyclerviewSchedule.layoutManager = LinearLayoutManager(view.context)
         getAllSchedules(FirebaseAuth.getInstance().currentUser?.uid)
         binding.buttonLogout.setOnClickListener {
@@ -53,6 +58,13 @@ class ProfileFragment : Fragment() {
                 if (!updateProfile.isAdded) {
                     updateProfile.show(childFragmentManager,"Update Profile")
                 }
+            }
+
+        }
+        binding.buutonChangePassword.setOnClickListener {
+            if (collector != null) {
+                collectorViewModel.setCollector(collector!!)
+                Navigation.findNavController(view).navigate(R.id.action_nav_profile_to_updatePasswordFragment)
             }
 
         }

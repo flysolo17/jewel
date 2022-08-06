@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         binding.buttonLogin.setOnClickListener {
             val email = binding.inputEmail.text.toString()
-            val password = binding.inputPassword.toString()
+            val password = binding.inputPassword.text.toString()
             when {
                 email.isEmpty() -> {
                     binding.inputEmail.error = "enter email"
@@ -42,6 +42,12 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         binding.buttonCreateAccount.setOnClickListener { startActivity(Intent(this,CreateAccountActivity::class.java)) }
+        binding.textForgotPassword.setOnClickListener {
+            val forgotPasswordFragment = ForgotPasswordFragment();
+            if (!forgotPasswordFragment.isAdded) {
+                forgotPasswordFragment.show(supportFragmentManager,"Forgot Password")
+            }
+        }
     }
 
     //TODO: login script

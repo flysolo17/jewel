@@ -27,6 +27,7 @@ class ScheduleAdapter(val context: Context, private val scheduleList : List<Sche
         schedule.days?.map { days ->
             addDays(days,holder.layoutDays)
         }
+        holder.textTime.text = "${schedule.startTime?.hour} : ${schedule.startTime?.minute} ${schedule.startTime?.meridiem}"
     }
 
     override fun getItemCount(): Int {
@@ -34,8 +35,9 @@ class ScheduleAdapter(val context: Context, private val scheduleList : List<Sche
     }
     class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val layoutDays : LinearLayout  = itemView.findViewById(R.id.layoutDays)
-        val layoutRoutes : RecyclerView = itemView.findViewById(R.id.layoutRoutes)
+        private val layoutRoutes : RecyclerView = itemView.findViewById(R.id.layoutRoutes)
         private lateinit var routeAdapter: RouteAdapter
+        val textTime: TextView = itemView.findViewById(R.id.textTime)
         fun initRoutes(listRoutes : List<String>) {
             routeAdapter = RouteAdapter(itemView.context,listRoutes)
             layoutRoutes.apply {
@@ -48,7 +50,9 @@ class ScheduleAdapter(val context: Context, private val scheduleList : List<Sche
     private fun addDays(days: String ,layoutDays : LinearLayout) {
         val view = LayoutInflater.from(context).inflate(R.layout.row_days,layoutDays,false)
         val textName : TextView = view.findViewById(R.id.texDayName)
+
         textName.text = days
+
         layoutDays.addView(view)
     }
 }

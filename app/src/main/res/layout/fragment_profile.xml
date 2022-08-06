@@ -8,9 +8,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:gravity="center"
+        android:padding="20dp"
+
+        android:background="@color/purple_700"
         android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Name: "/>
         <TextView
             android:id="@+id/textFullname"
             android:layout_width="wrap_content"
@@ -18,28 +31,64 @@
             android:text="Fullname"
             android:fontFamily="@font/poppins_medium"
             android:textSize="18sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Phone: "/>
         <TextView
             android:id="@+id/textPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/phone_number"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Plate Number: "/>
         <TextView
             android:id="@+id/textPlateNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plate_number"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:fontFamily="@font/poppins_light"
+                android:textColor="@color/white"
+                android:text="Email: "/>
         <TextView
             android:id="@+id/textEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
             android:fontFamily="@font/poppins_light"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -47,19 +96,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:id="@+id/buutonChangePassword"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit"
-            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:id="@+id/updateProfile"/>
 
         <Button
             android:id="@+id/buttonLogout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:backgroundTint="#F44336"
             android:text="Logout" />

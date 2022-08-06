@@ -15,7 +15,6 @@
         android:textSize="12sp"
         android:gravity="center"
         android:text="True"
-
         android:id="@+id/texDayName"
         android:textColor="@color/white"
         android:padding="5dp"
