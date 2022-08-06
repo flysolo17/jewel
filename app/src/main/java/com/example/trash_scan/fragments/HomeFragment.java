@@ -81,6 +81,10 @@ public class HomeFragment extends Fragment implements DestinationAdapter.OnDesti
             }
 
         });
+        binding.cardViewMarketPlace.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_nav_home_to_marketPlaceFragment2);
+        });
+
         binding.recyclerviewDestinations.setLayoutManager(new LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false));
         binding.recyclerviewDestinations.setAdapter(destinationAdapter);
 

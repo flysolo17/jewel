@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_nav_home_to_destinationInfoFragment"
             app:destination="@id/destinationInfoFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_marketPlaceFragment2"
+            app:destination="@id/marketPlaceFragment2" />
 
     </fragment>
     <fragment
