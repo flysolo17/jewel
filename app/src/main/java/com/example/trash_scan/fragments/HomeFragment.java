@@ -136,6 +136,7 @@ public class HomeFragment extends Fragment implements DestinationAdapter.OnDesti
         binding.pointsProgress.setProgress(rounded);
         binding.pointsProgress.setMax(getProgressBarMax(pointsTotal));
         binding.textPoints.setText(decfor.format(pointsTotal));
+        binding.textMin.setText(decfor.format(pointsTotal));
         displayMinAndMax(rounded,getProgressBarMax(pointsTotal));
         displayBadge(pointsTotal);
     }
@@ -181,7 +182,7 @@ public class HomeFragment extends Fragment implements DestinationAdapter.OnDesti
         return max;
     }
     private void displayMinAndMax(int min ,int max) {
-        binding.textMin.setText(String.valueOf(min));
+
         binding.textMax.setText(String.valueOf(max));
     }
 
