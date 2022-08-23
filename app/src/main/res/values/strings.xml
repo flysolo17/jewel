@@ -6,6 +6,7 @@
     <string name="phone">Phone</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false" >AIzaSyCEDSCzde31V04YA5CpGlSsJbzWgDL6E1I</string>
     <string name="fullname">Full Name</string>
     <string name="not_registered">Not Regesitered?</string>
     <string name="nav_header_desc">Nav Header Desc</string>

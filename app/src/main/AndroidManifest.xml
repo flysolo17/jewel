@@ -15,8 +15,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.TrashScan">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAGazifqsHGixvk3-ktVmRWMFPrtTG1rdg"/>
+
         <activity
             android:name=".registration.RegistrationActivity"
             android:exported="false"
@@ -44,14 +43,8 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <service
-            android:name=".notification.MessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCEDSCzde31V04YA5CpGlSsJbzWgDL6E1I"/>
     </application>
 
 </manifest>

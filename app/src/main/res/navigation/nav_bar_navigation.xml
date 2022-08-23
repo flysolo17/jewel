@@ -161,6 +161,11 @@
         android:name="com.example.trash_scan.fragments.TriviaFragment"
         android:label="fragment_trivia"
         tools:layout="@layout/fragment_trivia" />
+    <fragment
+        android:id="@+id/nav_maps"
+        android:name="com.example.trash_scan.fragments.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/fragment_maps" />
 
 
 </navigation>

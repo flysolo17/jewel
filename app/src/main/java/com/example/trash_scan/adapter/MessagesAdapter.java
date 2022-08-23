@@ -41,7 +41,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         if (viewType == SEND_MESSAGE) {
             return new MessageSentViewHolder(LayoutInflater.from(context).inflate(R.layout.row_send_messages, parent, false));
         } else{
@@ -52,7 +51,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Messages messages = messagesList.get(position);
-
         if (holder.getItemViewType() == SEND_MESSAGE) {
             MessageSentViewHolder sentViewHolder = (MessageSentViewHolder) holder;
             sentViewHolder.message.setText(messages.getMessage());
