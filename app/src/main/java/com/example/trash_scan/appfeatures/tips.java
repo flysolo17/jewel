@@ -18,9 +18,12 @@ import com.example.trash_scan.adapter.ScheduleAdapter;
 
 import com.example.trash_scan.databinding.ActivityTipsBinding;
 import com.example.trash_scan.firebase.models.Schedule;
+import com.example.trash_scan.firebase.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -47,10 +50,8 @@ public class tips extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         firestore = FirebaseFirestore.getInstance();
         binding.recyclerviewSchedule.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        getAllSchedules();
-
     }
-    private void getAllSchedules() {
+    private void getAllSchedules(String userAddress) {
         scheduleList = new ArrayList<>();
         firestore.collection(Schedule.TABLE_NAME)
                 .get()
@@ -59,11 +60,40 @@ public class tips extends Fragment {
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot documents : task.getResult()) {
                             Schedule schedule = documents.toObject(Schedule.class);
-                            scheduleList.add(schedule);
+                            if (schedule != null) {
+                                for (String route: schedule.getRoutes()) {
+                                    if (userAddress.contains(route)) {
+                                        scheduleList.add(schedule);
+                                    }
+                                }
+                            }
                         }
                         scheduleAdapter = new ScheduleAdapter(binding.getRoot().getContext(),scheduleList);
                         binding.recyclerviewSchedule.setAdapter(scheduleAdapter);
                     }
                 });
             }
+    private void getUserInfo(String userID) {
+        firestore.collection(User.TABLE_NAME)
+                .document(userID)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        User user = documentSnapshot.toObject(User.class);
+                        if (user != null) {
+                            getAllSchedules(user.getUserAddress());
+                        }
+                    }
+                });
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            getUserInfo(currentUser.getUid());
+        }
+    }
 }

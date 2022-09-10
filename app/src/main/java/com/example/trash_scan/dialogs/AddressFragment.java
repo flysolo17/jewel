@@ -46,7 +46,7 @@ public class AddressFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         barangays = requireActivity().getResources().getStringArray(R.array.barangays);
         addressViewModel = new ViewModelProvider(requireActivity()).get(AddressViewModel.class);
-        ArrayAdapter adapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_spinner_dropdown_item,barangays);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_spinner_dropdown_item,barangays);
         binding.textBarangay.setAdapter(adapter);
         binding.buttonSaveAddress.setOnClickListener(v -> {
             String barangay = binding.textBarangay.getSelectedItem().toString();

@@ -159,7 +159,7 @@
     <fragment
         android:id="@+id/nav_trivia"
         android:name="com.example.trash_scan.fragments.TriviaFragment"
-        android:label="fragment_trivia"
+        android:label="Trivia"
         tools:layout="@layout/fragment_trivia" />
     <fragment
         android:id="@+id/nav_maps"
