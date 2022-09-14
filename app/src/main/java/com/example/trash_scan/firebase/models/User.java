@@ -1,11 +1,6 @@
 package com.example.trash_scan.firebase.models;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.List;
-
 public class User {
     public static final String TABLE_NAME = "Users";
     public static final String ARG_USER_TYPE = "userType";
