@@ -68,15 +68,16 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         }
     }
     private void getLatLang(String address) {
-        latLangList.clear();
+        latLangList = new ArrayList<>();
         FirebaseFirestore.getInstance().collection("1")
                 .get()
                 .addOnCompleteListener(task -> {
-                    latLangList = new ArrayList<>();
+                    latLangList.clear();
                     if (task.isSuccessful()) {
                         for (LatLang latLang: task.getResult().toObjects(LatLang.class)) {
                             if (address.contains(latLang.getAddress())) {
-                                LatLng latLng = new LatLng(Long.parseLong(latLang.getLatitude()),Long.parseLong(latLang.getLongitude()));
+
+                                LatLng latLng = new LatLng(Double.parseDouble(latLang.getLatitude()),Double.parseDouble(latLang.getLongitude()));
                                 latLangList.add(latLng);
                             }
                         }
